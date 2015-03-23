@@ -56,30 +56,36 @@ grid = [[8, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 
 highestCurrent = 0
 
 #double for loop
+
+#searches down
 for i in xrange(0,16):
 	for j in xrange(0, 20):
 		down = grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid[i+3][j]
 		if (down>highestCurrent):
 			highestCurrent = down
 
+#searches across
 for i in xrange(0,20):
 	for j in xrange(0, 16):
 		across = grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3]
 		if (across>highestCurrent):
 			highestCurrent = across
 
+#searches diagonally, down and right
 for i in xrange(0,16):
 	for j in xrange(0,16):
 		diagonalDownRight = grid[i][j]*grid[i+1][j+1]*grid[i+2][j+2]*grid[i+3][j+3]
 		if (diagonalDownRight > highestCurrent):
 			highestCurrent = diagonalDownRight
 
+#searches diagonally, down and left
 for i in xrange(0,16):
 	for j in xrange(3,20):
 		diagonal = grid[i][j]*grid[i+1][j-1]*grid[i+2][j-2]*grid[i+3][j-3]
 		if (diagonal > highestCurrent):
 			highestCurrent = diagonal
 
+#prints the highest value found
 print highestCurrent
 
 
